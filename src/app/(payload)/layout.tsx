@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { RootLayout } from '@payloadcms/next/layouts'
+import { RootLayout, handleServerFunctions } from '@payloadcms/next/layouts'
 import config from '@payload-config'
 import { importMap } from './admin/importMap'
 
@@ -12,8 +12,13 @@ export const metadata: Metadata = {
   description: 'Panel administration LeBonM2',
 }
 
-const Layout = async ({ children }: Args) => (
-  <RootLayout config={config} importMap={importMap}>
+const serverFunction = handleServerFunctions({
+  config,
+  importMap,
+})
+
+const Layout = ({ children }: Args) => (
+  <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
     {children}
   </RootLayout>
 )
