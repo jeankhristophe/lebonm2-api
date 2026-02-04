@@ -1,0 +1,31 @@
+import { CollectionConfig } from 'payload'
+
+export const Media: CollectionConfig = {
+  slug: 'media',
+  upload: {
+    staticDir: 'media',
+    imageSizes: [
+      {
+        name: 'thumbnail',
+        width: 400,
+        height: 300,
+        position: 'centre',
+      },
+      {
+        name: 'card',
+        width: 768,
+        height: 512,
+        position: 'centre',
+      },
+    ],
+    adminThumbnail: 'thumbnail',
+    mimeTypes: ['image/png', 'image/jpeg', 'image/webp'],
+  },
+  fields: [
+    {
+      name: 'alt',
+      type: 'text',
+      label: 'Texte alternatif',
+    },
+  ],
+}
