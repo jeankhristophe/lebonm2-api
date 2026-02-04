@@ -1,6 +1,10 @@
+/* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */
+/* DO NOT MODIFY IT BECAUSE IT COULD BE REWRITTEN AT ANY TIME. */
 import type { Metadata } from 'next'
-import { RootLayout, handleServerFunctions } from '@payloadcms/next/layouts'
 import config from '@payload-config'
+import { RootLayout } from '@payloadcms/next/layouts'
+import React from 'react'
+
 import { importMap } from './admin/importMap'
 
 type Args = {
@@ -12,13 +16,8 @@ export const metadata: Metadata = {
   description: 'Panel administration LeBonM2',
 }
 
-const serverFunction = handleServerFunctions({
-  config,
-  importMap,
-})
-
 const Layout = ({ children }: Args) => (
-  <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
+  <RootLayout importMap={importMap} config={config}>
     {children}
   </RootLayout>
 )
