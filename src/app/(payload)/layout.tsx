@@ -6,6 +6,7 @@ import { RootLayout } from '@payloadcms/next/layouts'
 import React from 'react'
 
 import { importMap } from './admin/importMap'
+import { serverFunction } from './admin/actions'
 
 type Args = {
   children: React.ReactNode
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 }
 
 const Layout = ({ children }: Args) => (
-  <RootLayout importMap={importMap} config={config}>
+  <RootLayout importMap={importMap} config={config} serverFunction={serverFunction}>
     {children}
   </RootLayout>
 )
