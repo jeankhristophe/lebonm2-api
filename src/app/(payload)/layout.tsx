@@ -1,6 +1,6 @@
 /* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */
+/* DO NOT MODIFY IT BECAUSE IT COULD BE REWRITTEN AT ANY TIME. */
 import type { Metadata } from 'next'
-import type { ServerFunctionClient } from 'payload'
 import config from '@payload-config'
 import { RootLayout, handleServerFunctions } from '@payloadcms/next/layouts'
 import React from 'react'
@@ -16,17 +16,14 @@ export const metadata: Metadata = {
   description: 'Panel administration LeBonM2',
 }
 
-const serverFunctions: ServerFunctionClient = async function (args) {
-  'use server'
-  return handleServerFunctions({
-    ...args,
-    config,
-    importMap,
-  })
-}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const serverFunction = (handleServerFunctions as any)({
+  config,
+  importMap,
+})
 
 const Layout = ({ children }: Args) => (
-  <RootLayout importMap={importMap} config={config} serverFunction={serverFunctions}>
+  <RootLayout importMap={importMap} config={config} serverFunction={serverFunction}>
     {children}
   </RootLayout>
 )
